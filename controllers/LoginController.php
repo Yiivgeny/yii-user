@@ -4,6 +4,10 @@ class LoginController extends Controller
 {
 	public $defaultAction = 'login';
 
+    public function filters() {
+        return array();
+    }
+
 	/**
 	 * Displays the login page
 	 */
@@ -29,7 +33,7 @@ class LoginController extends Controller
 		} else
 			$this->redirect(Yii::app()->controller->module->returnUrl);
 	}
-	
+
 	private function lastViset() {
 		$lastVisit = User::model()->notsafe()->findByPk(Yii::app()->user->id);
 		$lastVisit->lastvisit_at = date('Y-m-d H:i:s');

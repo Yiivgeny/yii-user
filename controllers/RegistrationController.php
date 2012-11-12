@@ -3,7 +3,11 @@
 class RegistrationController extends Controller
 {
 	public $defaultAction = 'registration';
-	
+
+    	public function filters() {
+        	return array();
+    	}
+
 	/**
 	 * Declares class-based actions.
 	 */

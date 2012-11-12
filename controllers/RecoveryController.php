@@ -3,6 +3,10 @@
 class RecoveryController extends Controller
 {
 	public $defaultAction = 'recovery';
+
+    public function filters() {
+        return array();
+    }
 	
 	/**
 	 * Recovery password
