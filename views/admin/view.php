@@ -17,12 +17,12 @@ $this->menu=array(
 <h1><?php echo UserModule::t('View User').' "'.$model->username.'"'; ?></h1>
 
 <?php
- 
+
 	$attributes = array(
 		'id',
 		'username',
 	);
-	
+
 	$profileFields=ProfileField::model()->forOwner()->sort()->findAll();
 	if ($profileFields) {
 		foreach($profileFields as $field) {
@@ -34,7 +34,7 @@ $this->menu=array(
 				));
 		}
 	}
-	
+
 	array_push($attributes,
 		'password',
 		'email',
@@ -50,11 +50,11 @@ $this->menu=array(
 			'value' => User::itemAlias("UserStatus",$model->status),
 		)
 	);
-	
-	$this->widget('zii.widgets.CDetailView', array(
+
+	$this->widget('bootstrap.widgets.TbDetailView', array(
 		'data'=>$model,
 		'attributes'=>$attributes,
 	));
-	
+
 
 ?>
