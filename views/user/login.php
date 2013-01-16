@@ -42,7 +42,7 @@ $this->breadcrumbs = array(
 <?php echo $form->checkboxRow($model, 'rememberMe', array('class' => '')); ?>
 
 <div class="button-login">
-    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType' => 'submit', 'label' => 'Log in', 'icon' => 'icon-off')); ?>
+    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType' => 'submit', 'label' => 'Войти', 'icon' => 'icon-off')); ?>
 </div>
 <div class="clearfix"></div>
 <?php $this->endWidget(); ?>
