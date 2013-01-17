@@ -4,11 +4,7 @@ class ActivationController extends Controller
 {
 	public $defaultAction = 'activation';
 
-
-    public function allowedActions(){
-        return 'activation';
-    }
-
+	
 	/**
 	 * Activation user account
 	 */

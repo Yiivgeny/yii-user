@@ -3,11 +3,7 @@
 class LogoutController extends Controller
 {
 	public $defaultAction = 'logout';
-
-    public function allowedActions(){
-        return 'logout';
-    }
-    
+	
 	/**
 	 * Logout the current user and redirect to returnLogoutUrl.
 	 */
