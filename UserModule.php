@@ -190,13 +190,7 @@ class UserModule extends CWebModule
 		if(Yii::app()->user->isGuest)
 			return false;
 		else {
-			if (!isset(self::$_admin)) {
-				if(self::user()->superuser)
-					self::$_admin = true;
-				else
-					self::$_admin = false;	
-			}
-			return self::$_admin;
+			return Yii::app()->user->checkAccess("user_managment");
 		}
 	}
 
