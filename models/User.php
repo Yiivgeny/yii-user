@@ -107,18 +107,19 @@ class User extends CActiveRecord
 	
 	public function scopes()
     {
+        $alias = $this->getTableAlias();
         return array(
             'active'=>array(
-                'condition'=>'t.status='.self::STATUS_ACTIVE,
+                'condition'=>"{$alias}.status=".self::STATUS_ACTIVE,
             ),
             'notactive'=>array(
-                'condition'=>'t.status='.self::STATUS_NOACTIVE,
+                'condition'=>"{$alias}.status=".self::STATUS_NOACTIVE,
             ),
             'banned'=>array(
-                'condition'=>'t.status='.self::STATUS_BANNED,
+                'condition'=>"{$alias}.status=".self::STATUS_BANNED,
             ),
             'superuser'=>array(
-                'condition'=>'t.superuser=1',
+                'condition'=>"{$alias}.superuser=1",
             ),
             'notsafe'=>array(
             	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status',
