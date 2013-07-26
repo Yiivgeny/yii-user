@@ -23,16 +23,26 @@ class UserController extends Controller
 	 */
 	public function actionIndex()
 	{
+        $filterModel = new FilterModel;
+        $Criteria = new CDbCriteria;
+        $Criteria->condition = 'status > '.User::STATUS_BANNED;
+
+        if (isset($_REQUEST['FilterModel'])){
+            $filterModel->attributes = $_REQUEST['FilterModel'];
+        }
+        $Criteria->addInCondition(
+            'id',
+            Yii::app()->getAuthManager()->getAssignedUsers($filterModel->roles)
+        );
+
 		$dataProvider=new CActiveDataProvider('AUser', array(
-			'criteria'=>array(
-		        'condition'=>'status>'.User::STATUS_BANNED,
-		    ),
-				
+			'criteria'=> $Criteria,
 			'pagination'=>false
 		));
 
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+			'filterModel'=>$filterModel,
 		));
 	}
 
